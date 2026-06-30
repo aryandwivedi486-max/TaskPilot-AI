@@ -1,141 +1,252 @@
-# 🧑‍✈️ TaskPilot AI
-> **Smart Cognitive Flow Planner**  
-> *Google Vibe2Ship Hackathon Entry*
+<div align="center">
 
-TaskPilot AI is an AI-powered productivity companion designed to help users actively complete high-value tasks before deadlines rather than simply reminding them. Designed with the aesthetics of Notion AI, Sunsama, and Motion, it uses Gemini intelligence to automatically construct daily schedules, predict deadline risks, and offer professional coaching insights.
+# 🚀 TaskPilot AI
 
----
+### Plan Smarter. Finish Faster.
 
-## 🚀 Key Features
+An AI-powered productivity companion that helps users plan, prioritize, and complete tasks before deadlines using Google Gemini AI.
 
-### 1. 🧠 Dynamic Scheduling & Optimization
-- **Smart Timeline**: Converts lists of active tasks into sequential, non-overlapping daily schedules.
-- **Cognitive Load Analysis**: Predicts deadline risks and provides early warnings when focus times exceed realistic bounds.
-- **Focal Peak Points**: Identifies times of high productivity (e.g., morning peak performance) to schedule core focus blocks.
+Built for **Google Vibe2Ship Hackathon 2026**
 
-### 2. 🎯 Immersive Focus Mode
-- **Single-Tasking Discipline**: Allows users to choose their current target and enter a full-screen, distraction-free environment.
-- **Haptic & Visual Rhythms**: Staggered transitions and micro-animations reinforce deep cognitive focus.
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)
+![Gemini](https://img.shields.io/badge/Google-Gemini-blue)
+![Cloud Run](https://img.shields.io/badge/Google-Cloud_Run-4285F4?logo=googlecloud)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-### 3. 📊 Analytics Engine & Heatmaps
-- **Completion Density**: Displays daily progress logs and weekly heatmaps mapping active completed sprint blocks.
-- **Productivity Score**: Calibrates and tracks a dynamic productivity coefficient calculated from active task completions.
-
-### 4. 📲 Progressive Web App (PWA)
-- **Offline Caching**: Core assets are fully cached by a custom Service Worker (`sw.js`) for fast offline loading.
-- **Installable Desktop/Mobile App**: Uses responsive high-contrast launcher icons (`pilot-hat.png`) for seamless standalone application feel.
+</div>
 
 ---
 
-## 🛠️ Technology Stack
+# 📖 Problem Statement
 
-- **Frontend**: React 19, Vite, Tailwind CSS (v4), Motion (React animations), Lucide Icons
-- **Backend Service**: Node.js, Express, esbuild
-- **AI Intelligence**: Google Gemini API via `@google/genai` TypeScript SDK
-- **Data Persistence**: Firebase Authentication, Cloud Firestore
-- **Production Infrastructure**: Docker (multi-stage Alpine configurations), ready for Google Cloud Run deployment
+## The Last-Minute Life Saver
 
----
+Students, professionals, and entrepreneurs frequently miss deadlines because traditional reminder applications only notify users—they don't help them take action.
 
-## 📂 Project Architecture
-
-The codebase adheres strictly to clean architectural principles, separating UI, business logic, and API data layers:
-
-```
-├── .dockerignore           # Production container build exclusions
-├── .env.example            # Template for environment variables and secrets
-├── Dockerfile              # Multi-stage production Docker build
-├── firebase-applet-config.json # Direct Firebase integration settings
-├── package.json            # Script definitions and npm dependencies
-├── public/                 # Static assets, logos, and PWA configuration
-│   ├── manifest.json       # App installability manifest
-│   └── sw.js               # Service Worker managing offline caches
-├── server.ts               # Production custom Express-Vite backend
-├── src/                    # React frontend architecture
-│   ├── main.tsx            # App entry point & error handlers
-│   ├── App.tsx             # Main layout, routing, and navigation
-│   ├── index.css           # Global theme colors and Space Grotesk/Inter fonts
-│   ├── contexts/           # Authentication and state contexts
-│   ├── firebase/           # DB initialization and connection handlers
-│   ├── pages/              # Responsive page components (Dashboard, Analytics, etc.)
-│   └── types/              # Declarative TypeScript models and enums
-└── vite.config.ts          # Build plugin rules and configurations
-```
+TaskPilot AI addresses this challenge by using Google Gemini AI to intelligently prioritize tasks, predict deadline risks, generate optimized daily schedules, and provide actionable productivity recommendations.
 
 ---
 
-## 💻 Local Installation & Setup
+# ✨ Features
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
+## 🤖 AI Productivity Engine
 
-### 1. Clone & Install Dependencies
-```bash
-# Clone the repository
-git clone https://github.com/your-username/taskpilot-ai.git
-cd taskpilot-ai
-
-# Install package dependencies
-npm install
-```
-
-### 2. Configure Environment Variables
-Create a `.env` file in the root directory based on the `.env.example` template:
-```env
-GEMINI_API_KEY="your-gemini-api-key"
-VITE_APP_NAME="TaskPilot AI"
-NODE_ENV="development"
-PORT=3000
-```
-
-### 3. Run Development Server
-```bash
-npm run dev
-```
-The application will boot in development mode on `http://localhost:3000`.
+- AI-powered task prioritization
+- Smart workload balancing
+- Personalized daily schedules
+- Deadline risk prediction
+- Productivity recommendations
+- AI Focus Mode
 
 ---
 
-## 🏗️ Production Build & Deployment
+## 📋 Smart Task Management
 
-### 1. Compile Locally
-To run a production-ready compilation of both the React client assets and the Express backend:
-```bash
-npm run build
-npm start
-```
-This builds static assets into `dist/` and compiles `server.ts` into a self-contained CJS bundle inside `dist/server.cjs` for fast startup.
+- Create Tasks
+- Edit Tasks
+- Delete Tasks
+- Search Tasks
+- Filter Tasks
+- Priority Management
+- Categories
+- Estimated Duration
+- Notes
 
-### 2. Containerized Build (Docker)
-Build the production-optimized multi-stage Docker image:
-```bash
-docker build -t taskpilot-ai:latest .
-```
+---
 
-### 3. Google Cloud Run Deployment
-Deploy the container directly to Google Cloud Run to achieve auto-scaling and managed TLS:
-```bash
-gcloud run deploy taskpilot-ai \
-  --image gcloud-cr-path/taskpilot-ai:latest \
-  --platform managed \
-  --region us-central1 \
-  --allow-unauthenticated \
-  --set-env-vars="GEMINI_API_KEY=your-api-key,NODE_ENV=production"
+## 🧠 AI Insights
+
+- AI Daily Brief
+- Smart Schedule
+- Deadline Risk Analysis
+- Workload Status
+- Personalized Recommendations
+
+---
+
+## 📊 Analytics
+
+- Productivity Score
+- Weekly Productivity Heatmap
+- Completion Rate
+- Focus Hours
+- Current Streak
+- Weekly Trends
+
+---
+
+## 🔐 Authentication
+
+- Email Login
+- Email Registration
+- Google Sign-In
+- Firebase Authentication
+
+---
+
+## ☁️ Cloud Integration
+
+- Cloud Firestore
+- Google Gemini API
+- Google Cloud Run Deployment
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| React | Frontend |
+| TypeScript | Type Safety |
+| Tailwind CSS | UI |
+| Firebase Authentication | User Authentication |
+| Cloud Firestore | Database |
+| Google Gemini API | AI Productivity Engine |
+| Google Cloud Run | Deployment |
+
+---
+
+# 📁 Project Structure
+
+```text
+src/
+│
+├── assets/
+├── components/
+├── contexts/
+├── firebase/
+├── gemini/
+├── hooks/
+├── layouts/
+├── pages/
+├── services/
+├── types/
+└── utils/
 ```
 
 ---
 
-## 🛡️ Security & Offline Hardening
-- **Server-Side API proxying**: API keys are completely protected from the browser. The client invokes local Express endpoints (`/api/gemini/optimize`) to interact with Gemini.
-- **Graceful Fault Recovery**: If the Gemini API hits quotas or rate limits, the server automatically degrades to local heuristic-based prioritization to ensure the application remains functional and doesn't display empty grids.
-- **Error Boundaries**: Sandboxed extension exceptions are caught at the root level and suppressed to preserve iframe rendering performance.
+# 🏗️ Architecture
+
+```text
+                   ┌─────────────────────┐
+                   │      React App      │
+                   └──────────┬──────────┘
+                              │
+                    Firebase Authentication
+                              │
+                   Cloud Firestore Database
+                              │
+                    Google Gemini API
+                              │
+                     AI Productivity Engine
+                              │
+     ┌───────────────┬───────────────┬───────────────┐
+     │               │               │
+ Dashboard      AI Insights      Analytics
+     │               │               │
+     └───────────────┴───────────────┘
+                     TaskPilot AI
+```
 
 ---
 
-## 🏆 Hackathon Alignment
+# ⚙️ Workflow
 
-TaskPilot AI solves the key Vibe2Ship productivity problem statement by:
-1. **Shifting focus from reminders to actionability**: Offering clear schedules and focus blocks.
-2. **Integrating deep Google services**: Utilizing Google Cloud Run, Cloud Firestore, and Gemini models.
-3. **Designing a production-quality SaaS experience**: Ensuring standalone PWA installation, zero-flicker transitions, and offline capabilities.
+```text
+User
+
+↓
+
+Login / Sign Up
+
+↓
+
+Create Tasks
+
+↓
+
+Cloud Firestore
+
+↓
+
+Click "✨ Optimize My Day"
+
+↓
+
+Google Gemini AI
+
+↓
+
+AI Daily Brief
+
+↓
+
+Smart Schedule
+
+↓
+
+Deadline Risk Analysis
+
+↓
+
+AI Recommendations
+
+↓
+
+Dashboard Updated
+
+↓
+
+Analytics Updated
+```
+
+---
+
+# 🎯 Key Highlights
+
+- 🤖 AI-powered task prioritization using Google Gemini
+- 📅 Smart schedule generation based on deadlines
+- 🚨 Deadline risk prediction with actionable insights
+- 📊 Productivity analytics and performance tracking
+- 🎯 Focus Mode to identify the highest-priority task
+- 🔒 Secure authentication with Firebase
+- ☁️ Cloud Firestore for persistent data storage
+- 🌐 Deployed on Google Cloud Run
+- 📱 Fully responsive design for desktop, tablet, and mobile
+
+---
+
+# 💡 Future Improvements
+
+- Google Calendar Integration
+- Voice Assistant
+- AI Habit Tracker
+- Smart Notifications
+- Team Collaboration
+- Goal Planning
+- Cross-device Synchronization
+
+---
+
+# 👨‍💻 Developer
+
+**Aryan Dwivedi**
+
+B.Tech Computer Science (Data Science)
+
+Built for **Google Vibe2Ship Hackathon 2026**
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
