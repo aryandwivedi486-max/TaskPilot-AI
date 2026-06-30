@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskPilot AI — Smart Cognitive Flow Planner & Coach</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="TaskPilot AI — Smart Cognitive Flow Planner & Coach" />
+    <meta name="description" content="Plan Smarter. Finish Faster. An AI-powered productivity companion that helps you complete tasks before deadlines instead of simply reminding them." />
+    <meta name="application-name" content="TaskPilot AI" />
+    <meta name="theme-color" content="#4F46E5" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai.studio/build" />
+    <meta property="og:title" content="TaskPilot AI — Smart Cognitive Flow Planner & Coach" />
+    <meta property="og:description" content="Plan Smarter. Finish Faster. An AI-powered productivity companion that helps you complete tasks before deadlines instead of simply reminding them." />
+    <meta property="og:image" content="https://img.icons8.com/fluency/512/000000/pilot-hat.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="TaskPilot AI — Smart Cognitive Flow Planner & Coach" />
+    <meta property="twitter:description" content="Plan Smarter. Finish Faster. An AI-powered productivity companion that helps you complete tasks before deadlines instead of simply reminding them." />
+    <meta property="twitter:image" content="https://img.icons8.com/fluency/512/000000/pilot-hat.png" />
+
+    <!-- PWA Linkage -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/192/000000/pilot-hat.png" />
+    <link rel="shortcut icon" href="https://img.icons8.com/fluency/48/000000/pilot-hat.png" type="image/png" />
+
+    <script>
+      // Gracefully suppress browser extension errors that fail inside sandboxed preview iframes
+      window.addEventListener('error', (event) => {
+        const message = event.message || (event.error && event.error.message) || '';
+        const filename = event.filename || '';
+        const stack = (event.error && event.error.stack) || '';
+        
+        const isExtensionError = 
+          message.includes('This script should only be loaded in a browser extension') ||
+          filename.includes('chrome-extension://') ||
+          stack.includes('chrome-extension://') ||
+          filename.includes('extension') ||
+          message.includes('Extension');
+          
+        if (isExtensionError) {
+          console.warn('[TaskPilot AI] Suppressed browser extension error:', message);
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
+
+      window.addEventListener('unhandledrejection', (event) => {
+        const reason = event.reason;
+        const message = reason instanceof Error ? reason.message : String(reason);
+        const stack = (reason instanceof Error && reason.stack) ? reason.stack : '';
+        
+        const isExtensionError = 
+          message.includes('This script should only be loaded in a browser extension') ||
+          stack.includes('chrome-extension://') ||
+          message.includes('Extension');
+          
+        if (isExtensionError) {
+          console.warn('[TaskPilot AI] Suppressed browser extension promise rejection:', message);
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

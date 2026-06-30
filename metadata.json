@@ -1,0 +1,6 @@
+{
+  "name": "TaskPilot AI",
+  "description": "Plan Smarter. Finish Faster. An AI-powered productivity companion that helps students, professionals and entrepreneurs plan, prioritize and complete important work before deadlines instead of simply reminding them.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,187 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile document containing non-PII details. PII details like email are isolated or protected.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The unique Firebase Authentication UID."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name."
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User profile photo URL."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last profile update timestamp."
+        }
+      },
+      "required": ["uid", "displayName", "createdAt", "updatedAt"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Task representing a unit of work with attributes for prioritization and deadline forecasting.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Task unique identifier."
+        },
+        "title": {
+          "type": "string",
+          "description": "Task title."
+        },
+        "description": {
+          "type": "string",
+          "description": "Task detailed description."
+        },
+        "deadline": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Due date and time."
+        },
+        "estimatedDuration": {
+          "type": "integer",
+          "description": "Estimated duration to complete in minutes."
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"],
+          "description": "Prioritization tier."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category or label (e.g. Work, Study, Health)."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional user notes."
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "Whether the task is completed."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the user who owns this task."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Task creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Task last update timestamp."
+        }
+      },
+      "required": ["id", "title", "deadline", "estimatedDuration", "priority", "completed", "ownerId", "createdAt", "updatedAt"]
+    },
+    "AIPlan": {
+      "title": "AI Plan",
+      "description": "AI-generated schedule and deadline prioritization analysis.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "AI Plan identifier (usually links to ownerId)."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the user who owns this plan."
+        },
+        "priorityOrder": {
+          "type": "array",
+          "description": "List of task IDs in the recommended completion order."
+        },
+        "todaySchedule": {
+          "type": "array",
+          "description": "Timed blocks for today's dynamic schedule."
+        },
+        "deadlineRisk": {
+          "type": "string",
+          "enum": ["low", "moderate", "high", "critical"],
+          "description": "Forecasted level of risk for missed deadlines."
+        },
+        "recommendations": {
+          "type": "array",
+          "description": "Coaching tips and actionable suggestions."
+        },
+        "lastOptimizedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when AI optimization last ran."
+        }
+      },
+      "required": ["id", "ownerId", "priorityOrder", "todaySchedule", "deadlineRisk", "recommendations", "lastOptimizedAt"]
+    },
+    "Analytics": {
+      "title": "Analytics Snapshot",
+      "description": "Weekly/monthly productivity metrics and streak tracking.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Document ID."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the user."
+        },
+        "tasksCompleted": {
+          "type": "integer",
+          "description": "Total tasks completed."
+        },
+        "focusMinutes": {
+          "type": "integer",
+          "description": "Total focused minutes logged."
+        },
+        "currentStreak": {
+          "type": "integer",
+          "description": "Current consecutive active days."
+        },
+        "bestStreak": {
+          "type": "integer",
+          "description": "Longest active streak achieved."
+        },
+        "lastActiveAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last active timestamp."
+        }
+      },
+      "required": ["id", "ownerId", "tasksCompleted", "focusMinutes", "currentStreak", "bestStreak", "lastActiveAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Stores basic user profiles."
+    },
+    "tasks/{taskId}": {
+      "schema": "Task",
+      "description": "Stores user tasks. Queried and secured by ownerId."
+    },
+    "aiPlans/{planId}": {
+      "schema": "AIPlan",
+      "description": "Stores optimized AI plans for the user."
+    },
+    "analytics/{analyticsId}": {
+      "schema": "Analytics",
+      "description": "Stores aggregated analytics and stats."
+    }
+  }
+}

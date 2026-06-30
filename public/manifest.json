@@ -1,0 +1,23 @@
+{
+  "short_name": "TaskPilot AI",
+  "name": "TaskPilot AI - Smart Cognitive Flow Planner",
+  "description": "An AI-powered productivity companion that helps you plan, prioritize and complete important work before deadlines.",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/fluency/192/000000/pilot-hat.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://img.icons8.com/fluency/512/000000/pilot-hat.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#070708",
+  "theme_color": "#4F46E5",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": ["productivity", "utilities"]
+}
